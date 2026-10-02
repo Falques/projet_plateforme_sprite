@@ -30,6 +30,16 @@ class Game:
         self.cooldown = {
             'fleche' : 0
         }
+
+
+
+        
+
+
+        self.ennemis = pygame.sprite.Group()
+
+
+
     def gerer_evenements(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -66,6 +76,9 @@ class Game:
     def update(self):
         self.joueur.update()
         self.groupe_projectile_joueur.update()
+        self.ennemis.update()
+
+
 
     def dessiner(self):
         self.ecran.fill((135, 206, 235))
@@ -73,7 +86,7 @@ class Game:
         
         self.groupe_joueurs.draw(self.ecran)
         self.groupe_projectile_joueur.draw(self.ecran)
-        
+        self.ennemis.draw(self.ecran)
         self.interface.update()
 
 
